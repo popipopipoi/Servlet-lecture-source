@@ -1,30 +1,27 @@
 package com.ohgiraffers.el.controller;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import com.ohgiraffers.el.model.dto.MemberDTO;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/test1")
-public class TestOneServlet extends HttpServlet {
+@WebServlet("/test2")
+public class TestTwoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("name","홍길동");
-        request.setAttribute("age",19);
-        request.setAttribute("phone", "010-1234-5678");
+        MemberDTO member = new MemberDTO("홍길동", 19, "010-1234-5678", "gildong@ohgiraffers.com");
 
-        List<String> items = new ArrayList<>();
-        items.add(new String("apple"));
-        items.add(new String("banana"));
-        items.add(new String("melon"));
+        request.setAttribute("member", member);
 
-        request.setAttribute("items", items);
-
-        RequestDispatcher rd = request.getRequestDispatcher("views/el/testEl1.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("views/el/testEl2.jsp");
         rd.forward(request, response);
     }
 

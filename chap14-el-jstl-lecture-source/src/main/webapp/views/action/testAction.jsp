@@ -1,16 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hi
-  Date: 2023-09-06
-  Time: 오전 11:32
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<%--  <%@include file="common.jsp"%>--%>
+<!-- 태그를 열면 닫기 태그를 반드시 작성해야 한다. 작성하지 않으면 500 에러가 발생한다. -->
+<jsp:include page="common.jsp"/>
+<h1>여기서부터 내용입니다.</h1>
+
+<% request.setAttribute("name", "홍길동");%>
+
+<jsp:forward page="testForward.jsp"/>
+</body>
 </html>

@@ -8,20 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet("/test2")
-public class TestTwoServlet extends HttpServlet {
+@WebServlet("/test4")
+public class TestFourServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        MemberDTO member = new MemberDTO("홍길동", 19, "010-1234-5678", "gildong@ohgiraffers.com");
+        MemberDTO sessionmember = new MemberDTO("홍길동", 19, "010-1234-5678", "gildong@ohgiraffers.com");
+        MemberDTO requestmember = new MemberDTO("유관순", 16, "010-8765-4321", "yoo@ohgiraffers.com");
 
-        request.setAttribute("member", member);
+        HttpSession session = request.getSession();
+        session.setAttribute("member", sessionmember);
 
-        RequestDispatcher rd = request.getRequestDispatcher("views/el/testEl2.jsp");
+        request.setAttribute("member", requestmember);
+
+        RequestDispatcher rd = request.getRequestDispatcher("views/el/testEl4.jsp");
         rd.forward(request, response);
     }
 

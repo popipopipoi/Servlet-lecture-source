@@ -1,16 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hi
-  Date: 2023-09-06
-  Time: 오전 10:37
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h1>include directive</h1>
+
+    <!-- include 지시자 태그는 해당 jsp에 작성 된 그대로 포함 시켜 현재 jsp 파일을 동작시킨다.
+    동일한 변수를 사용하면 컴파일 에러가 발생한다. -->
+    <div><%@include file="today.jsp"%></div>
+
+    <%
+       // String output = "";
+    %>
+
+</body>
 </html>
